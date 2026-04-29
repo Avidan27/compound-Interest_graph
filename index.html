@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Compound Interest — Your Money's Superpower</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <link rel="stylesheet" href="compound-interest.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">₹ CompoundIQ</div>
+  <div class="nav-links">
+    <a href="#calculator">Calculator</a>
+    <a href="#investments">Investments</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-music" id="musicBtn" onclick="toggleMusic()">
+    <div class="music-dot" id="musicDot"></div>
+    <span id="musicLabel">Play Music</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎓 For College Students · Investing 101</div>
+    <h1>Make Your Money<br/>Work While You Sleep</h1>
+    <p>Discover the superpower of compound interest — the secret behind every great wealth story. Start early, invest smart, and watch ₹5,000/month transform into crores.</p>
+    <a href="#calculator" class="hero-cta">See Your Future Wealth →</a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num floating">25x</div>
+        <div class="hero-stat-label">Potential Growth</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num floating" style="animation-delay:0.5s">₹5K</div>
+        <div class="hero-stat-label">Start Monthly</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num floating" style="animation-delay:1s">12%</div>
+        <div class="hero-stat-label">Avg Equity Returns</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="howitworks">
+<div class="container">
+  <div class="section-tag">✦ The Basics</div>
+  <div class="section-title">How Compound Interest Works</div>
+  <div class="section-sub">Einstein supposedly called it the "eighth wonder of the world." Here's why it's your greatest financial ally.</div>
+
+  <div class="formula-box">
+    <div class="formula">A = P × (1 + r/n)<sup>nt</sup></div>
+    <div class="formula-desc">A = Final Amount · P = Principal · r = Annual Rate · n = Compounds per Year · t = Time in Years</div>
+  </div>
+
+  <div class="how-grid">
+    <div class="how-card fade-up">
+      <div class="step-num">01</div>
+      <div class="how-icon">🌱</div>
+      <h3>You Invest a Small Amount</h3>
+      <p>Even ₹500 a month counts. The key is starting early — time is your most powerful asset in investing.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="step-num">02</div>
+      <div class="how-icon">📈</div>
+      <h3>Your Money Earns Returns</h3>
+      <p>Your principal earns interest or market returns. A Nifty 50 index fund has historically returned 12-18% annually.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="step-num">03</div>
+      <div class="how-icon">🔄</div>
+      <h3>Returns Earn Returns Too</h3>
+      <p>This is the magic — your earnings get reinvested and start generating their own earnings. It snowballs.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="step-num">04</div>
+      <div class="how-icon">🚀</div>
+      <h3>Growth Becomes Exponential</h3>
+      <p>After 15-20 years, the curve goes parabolic. The last 5 years of a 25-year investment often contribute more than the first 20.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;background:var(--navy-card);border:1px solid var(--border);border-radius:16px;padding:2rem">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;text-align:center">
+      <div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.5rem">🐢 Simple Interest (₹5000/mo, 10%, 25yr)</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#ef9a9a;font-weight:700">₹20.5L</div>
+        <div style="font-size:0.75rem;color:var(--text-muted)">grows linearly</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--blue-accent)">→</div>
+      <div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.5rem">🚀 Compound Interest (₹5000/mo, 10%, 25yr)</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700">₹66.3L</div>
+        <div style="font-size:0.75rem;color:var(--text-muted)">grows exponentially</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:1rem;font-size:0.85rem;color:var(--text-muted)">Same money. Same rate. Compounding makes it <strong style="color:var(--gold)">3.2× bigger</strong>.</div>
+  </div>
+</div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator">
+<div class="container">
+  <div class="section-tag">📊 Interactive Calculator</div>
+  <div class="section-title">Watch Your Wealth Grow</div>
+  <div class="section-sub">Adjust the sliders to model your own investment journey. We'll show you year-by-year growth and inflation-adjusted real value.</div>
+
+  <div class="calc-wrapper">
+    <div class="calc-panel">
+      <div style="font-size:0.9rem;font-weight:600;color:var(--text-secondary);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.5px">Your Investment</div>
+
+      <div class="input-group">
+        <div class="input-label">Monthly SIP Amount <span class="input-val" id="amtLabel">₹5,000</span></div>
+        <input type="range" id="amtSlider" min="500" max="50000" step="500" value="5000"/>
+        <div class="range-labels"><span>₹500</span><span>₹50,000</span></div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-label">Investment Duration <span class="input-val" id="yrsLabel">25 years</span></div>
+        <input type="range" id="yrsSlider" min="1" max="40" step="1" value="25"/>
+        <div class="range-labels"><span>1 yr</span><span>40 yrs</span></div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-label">Expected Return (p.a.) <span class="input-val" id="rateLabel">12%</span></div>
+        <input type="range" id="rateSlider" min="4" max="20" step="0.5" value="12"/>
+        <div class="range-labels"><span>4%</span><span>20%</span></div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-label">Inflation Rate <span class="input-val" id="inflLabel">6%</span></div>
+        <input type="range" id="inflSlider" min="3" max="10" step="0.5" value="6"/>
+        <div class="range-labels"><span>3%</span><span>10%</span></div>
+      </div>
+
+      <div class="result-summary">
+        <div class="result-row"><span>Total Invested</span><span id="rInvested">—</span></div>
+        <div class="result-row"><span>Total Returns</span><span id="rReturns" style="color:#81c784">—</span></div>
+        <div class="result-row highlight"><span>Corpus (Nominal)</span><span id="rCorpus">—</span></div>
+        <div class="result-row"><span>Real Value (Inflation adj.)</span><span id="rReal" style="color:#90caf9">—</span></div>
+        <div class="result-row"><span>Wealth Multiplier</span><span id="rMulti" style="color:var(--gold)">—</span></div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-tabs">
+        <button class="tab-btn active" onclick="switchTab('growth',this)">Growth Chart</button>
+        <button class="tab-btn" onclick="switchTab('breakdown',this)">Year Breakdown</button>
+      </div>
+      <div style="position:relative;width:100%;height:380px">
+        <canvas id="growthChart" role="img" aria-label="Line chart showing investment growth over time with nominal and inflation-adjusted values">Compound interest growth chart</canvas>
+      </div>
+      <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:1rem;font-size:0.78rem;color:var(--text-muted)">
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:3px;background:#ffc107;display:inline-block;border-radius:2px"></span>Corpus (Nominal)</span>
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:3px;background:#42a5f5;display:inline-block;border-radius:2px;border-top:2px dashed #42a5f5;background:transparent"></span>Real Value (Inflation adj.)</span>
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:3px;background:#4caf50;display:inline-block;border-radius:2px"></span>Amount Invested</span>
+      </div>
+      <div style="margin-top:1rem;padding:0.75rem;background:rgba(255,193,7,0.08);border:1px solid rgba(255,193,7,0.2);border-radius:8px;font-size:0.82rem;color:var(--text-muted)" id="insightBox">
+        💡 <span id="insightText">Loading insight...</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- INVESTMENTS -->
+<section class="invest-section" id="investments">
+<div class="container">
+  <div class="section-tag">💼 Where to Invest</div>
+  <div class="section-title">Investment Options Compared</div>
+  <div class="section-sub">Based on real 5-year CAGR data (2019–2024). Choose based on your risk appetite and goals.</div>
+
+  <div class="invest-grid">
+    <!-- GOLD -->
+    <div class="invest-card fade-up">
+      <div class="invest-icon" style="background:rgba(255,193,7,0.15)">🥇</div>
+      <div class="invest-name">Gold</div>
+      <div style="font-size:0.78rem;color:var(--text-muted)">5-Year CAGR (2019–2024)</div>
+      <div class="invest-return">~14% <small>p.a.</small></div>
+      <div class="invest-rows">
+        <div class="invest-row"><span>Min. Investment</span><strong>₹1 (Digital Gold)</strong></div>
+        <div class="invest-row"><span>Type</span><strong>Commodity / Hedge</strong></div>
+        <div class="invest-row"><span>Best For</span><strong>Inflation protection</strong></div>
+      </div>
+      <div class="platform-chips">
+        <span class="chip">Groww</span>
+        <span class="chip">Zerodha</span>
+        <span class="chip">Paytm Gold</span>
+        <span class="chip">PhonePe</span>
+      </div>
+      <div class="risk-label">Risk Level — <span style="color:#ffd54f">Medium</span></div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:45%;background:linear-gradient(90deg,#ffc107,#ff9800)"></div></div>
+      <div class="risk-text"><span>Safe</span><span>45/100</span><span>Risky</span></div>
+    </div>
+
+    <!-- STOCKS -->
+    <div class="invest-card fade-up">
+      <div class="invest-icon" style="background:rgba(33,150,243,0.15)">📈</div>
+      <div class="invest-name">Stocks</div>
+      <div style="font-size:0.78rem;color:var(--text-muted)">Nifty 50 CAGR (2019–2024)</div>
+      <div class="invest-return">~16% <small>p.a.</small></div>
+      <div class="invest-rows">
+        <div class="invest-row"><span>Min. Investment</span><strong>₹1 (Fractional/ETF)</strong></div>
+        <div class="invest-row"><span>Type</span><strong>Equity</strong></div>
+        <div class="invest-row"><span>Best For</span><strong>Long-term wealth</strong></div>
+      </div>
+      <div class="platform-chips">
+        <span class="chip">Zerodha</span>
+        <span class="chip">Groww</span>
+        <span class="chip">Angel One</span>
+        <span class="chip">Upstox</span>
+      </div>
+      <div class="risk-label">Risk Level — <span style="color:#ef9a9a">High</span></div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:72%;background:linear-gradient(90deg,#ef9a9a,#f44336)"></div></div>
+      <div class="risk-text"><span>Safe</span><span>72/100</span><span>Risky</span></div>
+    </div>
+
+    <!-- BONDS -->
+    <div class="invest-card fade-up">
+      <div class="invest-icon" style="background:rgba(76,175,80,0.15)">🏛️</div>
+      <div class="invest-name">Bonds</div>
+      <div style="font-size:0.78rem;color:var(--text-muted)">Govt. Bonds avg (2019–2024)</div>
+      <div class="invest-return">~7.5% <small>p.a.</small></div>
+      <div class="invest-rows">
+        <div class="invest-row"><span>Min. Investment</span><strong>₹1,000</strong></div>
+        <div class="invest-row"><span>Type</span><strong>Debt</strong></div>
+        <div class="invest-row"><span>Best For</span><strong>Stable returns</strong></div>
+      </div>
+      <div class="platform-chips">
+        <span class="chip">RBI Retail Direct</span>
+        <span class="chip">Zerodha Coin</span>
+        <span class="chip">Groww</span>
+      </div>
+      <div class="risk-label">Risk Level — <span style="color:#a5d6a7">Low</span></div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:22%;background:linear-gradient(90deg,#4caf50,#66bb6a)"></div></div>
+      <div class="risk-text"><span>Safe</span><span>22/100</span><span>Risky</span></div>
+    </div>
+
+    <!-- FD -->
+    <div class="invest-card fade-up">
+      <div class="invest-icon" style="background:rgba(156,39,176,0.15)">🏦</div>
+      <div class="invest-name">Fixed Deposits</div>
+      <div style="font-size:0.78rem;color:var(--text-muted)">Top bank FD rates (2024)</div>
+      <div class="invest-return">~7% <small>p.a.</small></div>
+      <div class="invest-rows">
+        <div class="invest-row"><span>Min. Investment</span><strong>₹1,000</strong></div>
+        <div class="invest-row"><span>Type</span><strong>Guaranteed</strong></div>
+        <div class="invest-row"><span>Best For</span><strong>Capital preservation</strong></div>
+      </div>
+      <div class="platform-chips">
+        <span class="chip">SBI</span>
+        <span class="chip">HDFC</span>
+        <span class="chip">Groww FD</span>
+        <span class="chip">Jar App</span>
+      </div>
+      <div class="risk-label">Risk Level — <span style="color:#80deea">Very Low</span></div>
+      <div class="risk-bar-track"><div class="risk-bar-fill" style="width:10%;background:linear-gradient(90deg,#4dd0e1,#00bcd4)"></div></div>
+      <div class="risk-text"><span>Safe</span><span>10/100</span><span>Risky</span></div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="compare-section">
+    <div style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.5px">Side-by-Side Comparison (Based on real 5-year data)</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Asset Class</th>
+          <th>5-Yr CAGR</th>
+          <th>Min Investment</th>
+          <th>Liquidity</th>
+          <th>Tax</th>
+          <th>Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🥇 Gold (Digital/SGB)</td>
+          <td><span class="pill pill-yellow">~14%</span></td>
+          <td>₹1</td>
+          <td>High</td>
+          <td>LTCG 20% (indexed)</td>
+          <td><span class="pill pill-yellow">Medium</span></td>
+        </tr>
+        <tr>
+          <td>📈 Stocks / Equity MF</td>
+          <td><span class="pill pill-green">~16%</span></td>
+          <td>₹1</td>
+          <td>Very High</td>
+          <td>LTCG 12.5% (>1yr)</td>
+          <td><span class="pill pill-red">High</span></td>
+        </tr>
+        <tr>
+          <td>🏛️ Govt. Bonds</td>
+          <td><span class="pill pill-blue">~7.5%</span></td>
+          <td>₹1,000</td>
+          <td>Medium</td>
+          <td>Taxable as income</td>
+          <td><span class="pill pill-green">Low</span></td>
+        </tr>
+        <tr>
+          <td>🏦 Fixed Deposits</td>
+          <td><span class="pill pill-blue">~7%</span></td>
+          <td>₹1,000</td>
+          <td>Low (lock-in)</td>
+          <td>Taxable as income</td>
+          <td><span class="pill pill-green">Very Low</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RETURNS CHART -->
+  <div style="margin-top:3rem;background:var(--navy-card);border:1px solid var(--border);border-radius:16px;padding:2rem">
+    <div style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.5px">₹1 Lakh invested for 5 years — What it becomes</div>
+    <div style="position:relative;width:100%;height:280px">
+      <canvas id="returnsChart" role="img" aria-label="Bar chart comparing returns of Gold, Stocks, Bonds, and Fixed Deposits over 5 years">Comparison of ₹1 Lakh investment returns across asset classes over 5 years.</canvas>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- APPS -->
+<section style="background:var(--navy-deepest);padding:5rem 2rem">
+<div class="container">
+  <div class="section-tag">📱 Recommended Apps</div>
+  <div class="section-title">Safe & Popular Investing Apps</div>
+  <div class="section-sub">All SEBI-regulated platforms. Perfect for first-time investors.</div>
+
+  <div class="apps-grid">
+    <div class="app-card">
+      <div class="app-logo" style="background:rgba(0,213,132,0.15);color:#00d584">GW</div>
+      <div class="app-name">Groww</div>
+      <div class="app-desc">Stocks, MFs, FDs, Gold, US stocks. Best UI for beginners.</div>
+      <div class="app-best">Best for Beginners</div>
+    </div>
+    <div class="app-card">
+      <div class="app-logo" style="background:rgba(255,82,82,0.15);color:#ff5252">ZR</div>
+      <div class="app-name">Zerodha</div>
+      <div class="app-desc">India's largest broker. Best for serious stock & F&O traders.</div>
+      <div class="app-best">Best for Stocks</div>
+    </div>
+    <div class="app-card">
+      <div class="app-logo" style="background:rgba(255,145,0,0.15);color:#ff9100">JR</div>
+      <div class="app-name">Jar App</div>
+      <div class="app-desc">Micro-savings in digital gold. Rounds up your spends automatically.</div>
+      <div class="app-best">Best for Micro-saving</div>
+    </div>
+    <div class="app-card">
+      <div class="app-logo" style="background:rgba(33,150,243,0.15);color:#2196f3">UX</div>
+      <div class="app-name">Upstox</div>
+      <div class="app-desc">Low-cost broker backed by Tiger Global. Great for ETFs & MFs.</div>
+      <div class="app-best">Best for Low Cost</div>
+    </div>
+    <div class="app-card">
+      <div class="app-logo" style="background:rgba(156,39,176,0.15);color:#ce93d8">ET</div>
+      <div class="app-name">ET Money</div>
+      <div class="app-desc">Mutual funds, tax planning, NPS. Great analytics and tracking.</div>
+      <div class="app-best">Best for Mutual Funds</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+<div class="container">
+  <div class="section-tag">❓ Common Questions</div>
+  <div class="section-title">Frequently Asked Questions</div>
+  <div class="section-sub">Everything a college student needs to know before their first investment.</div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>💡 Why should I learn about investing at all?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Money sitting in a savings account earns ~3% — but inflation in India runs at ~5-6%. That means every year you don't invest, you're actually losing purchasing power. Investing is how you:</p>
+        <ul>
+          <li>Beat inflation and grow real wealth over time</li>
+          <li>Build financial independence before your 40s</li>
+          <li>Create passive income that funds your dreams</li>
+          <li>Achieve goals like travel, home ownership, or starting a business</li>
+        </ul>
+        <p style="margin-top:0.75rem">Time is your biggest advantage as a student. Starting at 22 vs 32 can mean a 3x difference in final wealth.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>📚 Why should a student specifically learn about the stock market?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>The stock market is where long-term wealth is created in India. The Nifty 50 index has returned ~14-16% CAGR over the past decade — far outpacing FDs and savings accounts. As a student:</p>
+        <ul>
+          <li>You have time to ride out market volatility (short-term dips don't hurt you)</li>
+          <li>Even small SIPs of ₹500/month can compound to lakhs over 10-15 years</li>
+          <li>Understanding markets builds financial literacy that will serve you for life</li>
+          <li>Many companies offer ESOP (stock options) — knowing how stocks work helps you negotiate better</li>
+        </ul>
+        <p style="margin-top:0.75rem">You don't need to pick stocks — just invest in a Nifty 50 index fund via SIP and let compounding do the work.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>📱 Which apps are safe to invest through?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>All platforms below are SEBI-regulated and trusted by millions of Indians:</p>
+        <ul>
+          <li><strong>Groww</strong> — Best for beginners. Clean UI, stocks, MFs, FDs, Gold. No minimum for most products.</li>
+          <li><strong>Zerodha</strong> — India's largest broker. Best for serious equity investors. Kite is excellent.</li>
+          <li><strong>Jar App</strong> — Micro-investing in digital gold. Auto-invests spare change from UPI payments.</li>
+          <li><strong>Upstox</strong> — Low brokerage, great for ETFs and mutual funds. Tiger Global backed.</li>
+          <li><strong>ET Money</strong> — Excellent for mutual fund SIPs and tax planning (ELSS for 80C savings).</li>
+          <li><strong>RBI Retail Direct</strong> — Free platform to invest directly in Government bonds. Zero commission.</li>
+        </ul>
+        <p style="margin-top:0.75rem">Start with <a href="#">Groww</a> or <a href="#">ET Money</a> if you're a beginner — both are extremely user-friendly for students.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>🥇 Is investing in Gold a good idea?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Gold is a great <em>diversifier</em> — not a primary growth engine. Here's the breakdown:</p>
+        <ul>
+          <li><strong>Sovereign Gold Bonds (SGB)</strong> — Best form of gold. Earns 2.5% interest on top of price appreciation. Zero storage cost. Issued by RBI.</li>
+          <li><strong>Digital Gold</strong> (Groww, Jar) — Convenient, start from ₹1. But no extra interest like SGB.</li>
+          <li><strong>Gold ETFs</strong> — Listed on exchange, liquid, low expense ratio. Good for trading.</li>
+        </ul>
+        <p style="margin-top:0.75rem">Ideal allocation: 5–10% of your portfolio in gold as a hedge against inflation and economic uncertainty. Don't make it your primary investment.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>🎯 How much should I invest as a student?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Follow the simple <strong>50-30-20 rule</strong> with your pocket money or part-time income:</p>
+        <ul>
+          <li>50% on needs (food, transport, textbooks)</li>
+          <li>30% on wants (entertainment, eating out)</li>
+          <li>20% on saving + investing</li>
+        </ul>
+        <p style="margin-top:0.75rem">If you earn ₹10,000/month from a part-time job, that's ₹2,000 for investing. Even ₹500/month in a Nifty 50 index fund via SIP makes a difference. The habit matters more than the amount early on.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>📉 What happens if the market crashes?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Market crashes are <em>temporary</em> — and actually a student's best friend! Here's why:</p>
+        <ul>
+          <li>Crashes are when your SIP buys more units at lower prices (rupee cost averaging)</li>
+          <li>Every historical market crash (2008, 2020 COVID) was followed by full recovery and new highs</li>
+          <li>As a student, your investment horizon is 20-30 years — short-term volatility is irrelevant</li>
+          <li>Never panic-sell. The worst thing you can do is exit at the bottom</li>
+        </ul>
+        <p style="margin-top:0.75rem">Think of a crash as a "sale" on great assets. Keep your SIP running and let time work its magic.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>💼 What's a SIP and how do I start one?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>SIP = Systematic Investment Plan. It auto-deducts a fixed amount monthly from your bank and invests it in a mutual fund. Starting a SIP takes 5 minutes:</p>
+        <ul>
+          <li>Download <strong>Groww</strong> or <strong>ET Money</strong></li>
+          <li>Complete KYC (PAN + Aadhaar, 100% digital)</li>
+          <li>Search for a <strong>Nifty 50 Index Fund</strong> (e.g., UTI Nifty 50 Index Fund)</li>
+          <li>Set monthly SIP amount (minimum ₹100–500 on most funds)</li>
+          <li>Set auto-debit date — done! Your money invests itself every month</li>
+        </ul>
+        <p style="margin-top:0.75rem">No need to time the market. Just start and be consistent. That's the real secret.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<footer>
+  <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold);margin-bottom:1rem">₹ CompoundIQ</div>
+  <div>Built for curious college students who want to take control of their financial future.</div>
+  <div class="disclaimer">⚠️ Disclaimer: This tool is for educational purposes only. All return figures shown are historical and do not guarantee future performance. Please consult a SEBI-registered investment advisor before making financial decisions. Mutual fund investments are subject to market risk.</div>
+  <div style="margin-top:1.5rem;color:var(--text-muted);font-size:0.75rem">Data sourced from NSE, BSE, RBI and MCX · Returns as of 2024 · For informational use only</div>
+</footer>
+
+<script>
+// ---- MUSIC ENGINE ----
+
+// ============================================================
+// 👇 PASTE YOUR MP3 FILE PATH HERE (and nowhere else!)
+// Example (same folder):  'my-music.mp3'
+// Example (subfolder):    'audio/background.mp3'
+// Example (full path):    '/music/lofi-track.mp3'
+// ============================================================
+const MP3_PATH = '1.mp3';
+// ============================================================
+
+const bgAudio = new Audio(MP3_PATH);
+bgAudio.loop = true;
+bgAudio.volume = 0.5;
+
+let musicPlaying = false;
+
+function toggleMusic(){
+  const dot = document.getElementById('musicDot');
+  const label = document.getElementById('musicLabel');
+
+  if(!musicPlaying){
+    bgAudio.play().catch(err => console.warn('Audio play failed:', err));
+    musicPlaying = true;
+    dot.classList.add('active');
+    label.textContent = 'Stop Music';
+  } else {
+    bgAudio.pause();
+    musicPlaying = false;
+    dot.classList.remove('active');
+    label.textContent = 'Play Music';
+  }
+}
+
+// ---- CALCULATOR ----
+const amtSlider = document.getElementById('amtSlider');
+const yrsSlider = document.getElementById('yrsSlider');
+const rateSlider = document.getElementById('rateSlider');
+const inflSlider = document.getElementById('inflSlider');
+
+let growthChartInst = null;
+let currentTab = 'growth';
+
+function fmt(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); }
+function fmtL(n){
+  if(n >= 1e7) return '₹' + (n/1e7).toFixed(2) + ' Cr';
+  if(n >= 1e5) return '₹' + (n/1e5).toFixed(2) + ' L';
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+
+function calcSIP(monthly, years, rate){
+  const r = rate / 100 / 12;
+  const n = years * 12;
+  if(r === 0) return monthly * n;
+  return monthly * ((Math.pow(1+r, n) - 1) / r) * (1 + r);
+}
+
+function updateCalc(){
+  const P = parseFloat(amtSlider.value);
+  const Y = parseFloat(yrsSlider.value);
+  const R = parseFloat(rateSlider.value);
+  const I = parseFloat(inflSlider.value);
+
+  document.getElementById('amtLabel').textContent = '₹' + P.toLocaleString('en-IN');
+  document.getElementById('yrsLabel').textContent = Y + ' year' + (Y > 1 ? 's' : '');
+  document.getElementById('rateLabel').textContent = R + '%';
+  document.getElementById('inflLabel').textContent = I + '%';
+
+  const corpus = calcSIP(P, Y, R);
+  const invested = P * 12 * Y;
+  const returns = corpus - invested;
+  const real = corpus / Math.pow(1 + I/100, Y);
+  const multi = corpus / invested;
+
+  document.getElementById('rInvested').textContent = fmtL(invested);
+  document.getElementById('rReturns').textContent = fmtL(returns);
+  document.getElementById('rCorpus').textContent = fmtL(corpus);
+  document.getElementById('rReal').textContent = fmtL(real);
+  document.getElementById('rMulti').textContent = multi.toFixed(1) + 'x';
+
+  const insight = `Investing ${fmt(P)}/month for ${Y} years at ${R}% pa grows to ${fmtL(corpus)}. After ${I}% inflation, real value is ${fmtL(real)}. Your returns (${fmtL(returns)}) are ${((returns/invested)*100).toFixed(0)}% of what you invested.`;
+  document.getElementById('insightText').textContent = insight;
+
+  drawChart(P, Y, R, I);
+}
+
+function switchTab(tab, btn){
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const P = parseFloat(amtSlider.value);
+  const Y = parseFloat(yrsSlider.value);
+  const R = parseFloat(rateSlider.value);
+  const I = parseFloat(inflSlider.value);
+  drawChart(P, Y, R, I);
+}
+
+function drawChart(P, Y, R, I){
+  const labels = [], corpus = [], real = [], invested = [];
+  for(let y = 1; y <= Y; y++){
+    labels.push('Y' + y);
+    const c = calcSIP(P, y, R);
+    corpus.push(Math.round(c));
+    real.push(Math.round(c / Math.pow(1+I/100, y)));
+    invested.push(Math.round(P * 12 * y));
+  }
+
+  const ctx = document.getElementById('growthChart').getContext('2d');
+  if(growthChartInst) growthChartInst.destroy();
+
+  if(currentTab === 'growth'){
+    growthChartInst = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Corpus (Nominal)',
+            data: corpus,
+            borderColor: '#ffc107',
+            backgroundColor: 'rgba(255,193,7,0.08)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: Y > 20 ? 0 : 3,
+            borderWidth: 2.5,
+          },
+          {
+            label: 'Real Value',
+            data: real,
+            borderColor: '#42a5f5',
+            backgroundColor: 'rgba(66,165,245,0.05)',
+            fill: false,
+            tension: 0.4,
+            borderDash: [5,4],
+            pointRadius: Y > 20 ? 0 : 3,
+            borderWidth: 2,
+          },
+          {
+            label: 'Amount Invested',
+            data: invested,
+            borderColor: '#4caf50',
+            backgroundColor: 'rgba(76,175,80,0.08)',
+            fill: true,
+            tension: 0.1,
+            pointRadius: 0,
+            borderWidth: 1.5,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#0d2347',
+            borderColor: 'rgba(26,111,212,0.4)',
+            borderWidth: 1,
+            callbacks: {
+              label: ctx => ' ' + ctx.dataset.label + ': ₹' + ctx.parsed.y.toLocaleString('en-IN')
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(255,255,255,0.04)' },
+            ticks: {
+              color: '#5b8db8', font: { size: 11 },
+              autoSkip: true, maxTicksLimit: 10
+            }
+          },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.04)' },
+            ticks: {
+              color: '#5b8db8', font: { size: 11 },
+              callback: v => v >= 1e7 ? '₹' + (v/1e7).toFixed(1)+'Cr' : v >= 1e5 ? '₹'+(v/1e5).toFixed(0)+'L' : '₹'+v.toLocaleString('en-IN')
+            }
+          }
+        }
+      }
+    });
+  } else {
+    // Year breakdown - stacked bar
+    const retArr = corpus.map((c,i) => Math.round(c - invested[i]));
+    growthChartInst = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          { label: 'Amount Invested', data: invested, backgroundColor: 'rgba(76,175,80,0.6)', borderRadius: 2 },
+          { label: 'Returns Earned', data: retArr, backgroundColor: 'rgba(255,193,7,0.6)', borderRadius: 2 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#0d2347',
+            borderColor: 'rgba(26,111,212,0.4)',
+            borderWidth: 1,
+            callbacks: {
+              label: ctx => ' ' + ctx.dataset.label + ': ₹' + ctx.parsed.y.toLocaleString('en-IN')
+            }
+          }
+        },
+        scales: {
+          x: { stacked: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color:'#5b8db8', font:{size:11}, autoSkip:true, maxTicksLimit:10 }},
+          y: { stacked: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color:'#5b8db8', font:{size:11}, callback: v => v >= 1e7 ? '₹'+(v/1e7).toFixed(1)+'Cr' : v >= 1e5 ? '₹'+(v/1e5).toFixed(0)+'L' : '₹'+v.toLocaleString('en-IN') }}
+        }
+      }
+    });
+  }
+}
+
+// ---- RETURNS CHART ----
+function drawReturnsChart(){
+  const assets = ['Gold', 'Stocks\n(Nifty 50)', 'Govt\nBonds', 'Fixed\nDeposit'];
+  const cagrs = [0.14, 0.16, 0.075, 0.07];
+  const values = cagrs.map(r => Math.round(100000 * Math.pow(1+r, 5)));
+  const colors = ['rgba(255,193,7,0.75)', 'rgba(33,150,243,0.75)', 'rgba(76,175,80,0.75)', 'rgba(156,39,176,0.75)'];
+
+  const ctx2 = document.getElementById('returnsChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Gold', 'Stocks (Nifty 50)', 'Govt Bonds', 'Fixed Deposit'],
+      datasets: [{
+        label: 'Value after 5 years (₹1L invested)',
+        data: values,
+        backgroundColor: colors,
+        borderRadius: 8,
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0d2347', borderColor: 'rgba(26,111,212,0.4)', borderWidth: 1,
+          callbacks: { label: ctx => ' ₹' + ctx.parsed.y.toLocaleString('en-IN') + ' (invested ₹1,00,000)' }
+        }
+      },
+      scales: {
+        x: { grid:{color:'rgba(255,255,255,0.04)'}, ticks:{color:'#90caf9',font:{size:12}} },
+        y: {
+          grid:{color:'rgba(255,255,255,0.04)'},
+          ticks:{color:'#5b8db8',font:{size:11}, callback: v => '₹' + (v/1000).toFixed(0) + 'K'},
+          min: 80000
+        }
+      }
+    }
+  });
+}
+
+// ---- FAQ ----
+function toggleFaq(btn){
+  const ans = btn.nextElementSibling;
+  const chev = btn.querySelector('.faq-chevron');
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(a => {
+    a.classList.remove('open');
+    a.previousElementSibling.querySelector('.faq-chevron').classList.remove('open');
+  });
+  if(!isOpen){ ans.classList.add('open'); chev.classList.add('open'); }
+}
+
+// ---- INIT ----
+[amtSlider, yrsSlider, rateSlider, inflSlider].forEach(s => s.addEventListener('input', updateCalc));
+
+window.addEventListener('load', () => {
+  updateCalc();
+  drawReturnsChart();
+});
+
+// Intersection observer for fade-up
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.style.animationPlayState = 'running'; });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => {
+  el.style.animationPlayState = 'paused';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
